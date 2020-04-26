@@ -122,7 +122,7 @@ for i in range(len(new)):
 
 
 
-                    #monitized = monitized.append({'Title': new['Title'][i], 'Links': link}, ignore_index=True)
+                    monitized = monitized.append({'Title': new['Title'][i], 'Links': link}, ignore_index=True)
 
                     count += 1
                 else:
@@ -136,17 +136,17 @@ for i in range(len(new)):
     except TimeoutException:
         print ('Loading took too much time for video!', link)
 
-    # sleep(random.randint(1,8))
+     sleep(random.randint(1,8))
 
 print ()
 print ('*' * 30)
 
 print (count, 'Not Monitised video with length 2-7 found')
 print ('Total Time:', '%s seconds ' % (time.time() - start_time))
-#print ('writing to the csv file', output_f)
-#monitized = pd.DataFrame(monitized)
-#try:
-#    monitized.to_csv(output_f, index=False)
-#    print 'Write succesfull'
-#except:
-#    print 'Error couldnot write to file'
+print ('writing to the csv file', output_f)
+monitized = pd.DataFrame(monitized)
+try:
+    monitized.to_csv(output_f, index=False)
+    print 'Write succesfull'
+except:
+    print 'Error couldnot write to file'
